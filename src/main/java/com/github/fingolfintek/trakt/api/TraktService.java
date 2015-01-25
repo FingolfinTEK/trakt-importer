@@ -1,25 +1,26 @@
 package com.github.fingolfintek.trakt.api;
 
 import com.github.fingolfintek.trakt.model.*;
+import retrofit.http.Body;
 import retrofit.http.POST;
 
 public interface TraktService {
 
     @POST("/sync/collection")
-    TraktSyncResponse addMovies(TraktMovieSync sync);
+    TraktSyncResponse addMovies(@Body TraktMovieSync sync);
 
     @POST("/sync/collection")
-    TraktSyncResponse addShows(TraktShowSync sync);
+    TraktSyncResponse addShows(@Body TraktShowSync sync);
 
     @POST("/sync/collection")
-    TraktSyncResponse addEpisodes(TraktEpisodeSync sync);
+    TraktSyncResponse addEpisodes(@Body TraktEpisodeSync sync);
 
     @POST("/sync/ratings") 
-    TraktSyncResponse addMovieRatings(TraktMovieRatingSync sync);
+    TraktSyncResponse addMovieRatings(@Body TraktMovieRatingSync sync);
 
     @POST("/sync/ratings")
-    TraktSyncResponse addShowRatings(TraktShowRatingSync sync);
+    TraktSyncResponse addShowRatings(@Body TraktShowRatingSync sync);
 
     @POST("/sync/ratings")
-    TraktSyncResponse addEpisodeRatings(TraktEpisodeRatingSync sync);
+    TraktSyncResponse addEpisodeRatings(@Body TraktEpisodeRatingSync sync);
 }

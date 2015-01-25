@@ -1,4 +1,4 @@
-package com.github.fingolfintek;
+package com.github.fingolfintek.trakt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
