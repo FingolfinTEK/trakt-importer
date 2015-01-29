@@ -1,6 +1,6 @@
 package com.github.fingolfintek.trakt.api.interceptor;
 
-import com.github.fingolfintek.trakt.configuration.TraktProperties;
+import com.github.fingolfintek.trakt.configuration.properties.TraktProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import retrofit.RequestInterceptor;
