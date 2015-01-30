@@ -1,8 +1,11 @@
 package com.github.fingolfintek.trakt.api.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TraktShow {
     private String title;
-    private int year;
+    private Integer year;
     private TraktExternalIds ids;
 
     public TraktShow() {
@@ -20,11 +23,11 @@ public class TraktShow {
         this.title = title;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(final int year) {
+    public void setYear(final Integer year) {
         this.year = year;
     }
 

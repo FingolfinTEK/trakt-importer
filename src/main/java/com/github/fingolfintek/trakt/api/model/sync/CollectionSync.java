@@ -2,10 +2,12 @@ package com.github.fingolfintek.trakt.api.model.sync;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.github.fingolfintek.trakt.api.model.TraktEpisode;
 import com.github.fingolfintek.trakt.api.model.TraktMovie;
 import com.github.fingolfintek.trakt.api.model.TraktShow;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CollectionSync {
     private List<TraktMovie> movies;
     private List<TraktShow> shows;

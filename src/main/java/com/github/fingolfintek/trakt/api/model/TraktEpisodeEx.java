@@ -1,13 +1,13 @@
 package com.github.fingolfintek.trakt.api.model;
 
 public class TraktEpisodeEx {
-    private int number;
+    private Integer number;
 
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(final int number) {
+    public void setNumber(final Integer number) {
         this.number = number;
     }
 }

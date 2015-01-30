@@ -3,14 +3,14 @@ package com.github.fingolfintek.trakt.api.model;
 import java.util.List;
 
 public class TraktShowPlays {
-    private int plays;
+    private Integer plays;
     private TraktShowItem show;
 
-    public int getPlays() {
+    public Integer getPlays() {
         return plays;
     }
 
-    public void setPlays(final int plays) {
+    public void setPlays(final Integer plays) {
         this.plays = plays;
     }
 
@@ -34,14 +34,14 @@ public class TraktShowPlays {
         }
     
         public static class TraktSeasonItem {
-            private int number;
+            private Integer number;
             private List<TraktEpisodeWatchedEx> episodes;
     
-            public int getNumber() {
+            public Integer getNumber() {
                 return number;
             }
     
-            public void setNumber(final int number) {
+            public void setNumber(final Integer number) {
                 this.number = number;
             }
         

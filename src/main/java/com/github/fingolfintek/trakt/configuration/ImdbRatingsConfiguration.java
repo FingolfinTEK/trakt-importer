@@ -3,10 +3,9 @@ package com.github.fingolfintek.trakt.configuration;
 import java.io.IOException;
 
 import com.github.fingolfintek.trakt.api.SyncService;
-import com.github.fingolfintek.trakt.api.model.sync.SyncResponse;
 import com.github.fingolfintek.trakt.configuration.properties.ImdbProperties;
 import com.github.fingolfintek.trakt.parser.ImdbParser;
-import com.github.fingolfintek.trakt.sync.ImdbWatchlistImporter;
+import com.github.fingolfintek.trakt.sync.ImdbRatingsImporter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -15,9 +14,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty("imdb.watchlist")
+@ConditionalOnProperty("imdb.ratings")
 @EnableConfigurationProperties(ImdbProperties.class)
-public class ImdbWatchlistConfiguration {
+public class ImdbRatingsConfiguration {
 
     @Autowired
     private ImdbParser parser;
@@ -26,18 +25,18 @@ public class ImdbWatchlistConfiguration {
     private SyncService syncService;
 
     @Bean
-    public ImdbWatchlistImporter watchlistImporter() {
-        return new ImdbWatchlistImporter(syncService, parser);
+    public ImdbRatingsImporter ratingsImporter() {
+        return new ImdbRatingsImporter(syncService, parser);
     }
     
     @Bean
-    public CommandLineRunner watchlistImportRunner(ImdbProperties properties) {
+    public CommandLineRunner ratingsImportRunner(ImdbProperties properties) {
         return (args) -> doImport(properties);
     }
 
-    private SyncResponse doImport(ImdbProperties properties) {
+    private void doImport(ImdbProperties properties) {
         try {
-            return watchlistImporter().importFrom(properties.getWatchlist());
+            ratingsImporter().importFrom(properties.getRatings());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

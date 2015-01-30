@@ -1,12 +1,26 @@
 package com.github.fingolfintek.trakt.api.model.sync;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.fingolfintek.trakt.api.model.TraktExternalIds;
 import com.github.fingolfintek.trakt.api.model.TraktMovie;
+import com.github.fingolfintek.trakt.util.Pair;
 
 public class MovieRating extends TraktMovie {
+    
     private String ratedAt;
+    private Integer rating;
 
-    private int rating;
+    public MovieRating() {
+    }
+
+    public MovieRating(Pair<TraktExternalIds,Integer> idsWithRating) {
+        this(idsWithRating.getKey(), idsWithRating.getValue());
+    }
+
+    public MovieRating(TraktExternalIds ids, Integer rating) {
+        super(ids);
+        this.rating = rating;
+    }
 
     @JsonProperty("rated_at")
     public String getRatedAt() {
@@ -17,11 +31,11 @@ public class MovieRating extends TraktMovie {
         this.ratedAt = ratedAt;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(final int rating) {
+    public void setRating(final Integer rating) {
         this.rating = rating;
     }
 }

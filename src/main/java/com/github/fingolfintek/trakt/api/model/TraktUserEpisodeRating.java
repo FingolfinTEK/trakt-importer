@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TraktUserEpisodeRating {
     private String ratedAt;
-    private int rating;
+    private Integer rating;
     private TraktShow show;
     private TraktEpisodeSyncSummary episode;
 
@@ -17,11 +17,11 @@ public class TraktUserEpisodeRating {
         this.ratedAt = ratedAt;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(final int rating) {
+    public void setRating(final Integer rating) {
         this.rating = rating;
     }
 
@@ -43,8 +43,8 @@ public class TraktUserEpisodeRating {
 
     public static class TraktEpisodeSyncSummary {
         private TraktExternalIds ids;
-        private int number;
-        private int season;
+        private Integer number;
+        private Integer season;
         private String title;
 
         public TraktExternalIds getIds() {
@@ -55,19 +55,19 @@ public class TraktUserEpisodeRating {
             this.ids = ids;
         }
 
-        public int getNumber() {
+        public Integer getNumber() {
             return number;
         }
 
-        public void setNumber(final int number) {
+        public void setNumber(final Integer number) {
             this.number = number;
         }
 
-        public int getSeason() {
+        public Integer getSeason() {
             return season;
         }
 
-        public void setSeason(final int season) {
+        public void setSeason(final Integer season) {
             this.season = season;
         }
 

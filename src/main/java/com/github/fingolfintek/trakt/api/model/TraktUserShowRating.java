@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TraktUserShowRating {
     private String ratedAt;
-    private int rating;
+    private Integer rating;
     private TraktShow show;
 
     @JsonProperty("rated_at")
@@ -16,11 +16,11 @@ public class TraktUserShowRating {
         this.ratedAt = ratedAt;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(final int rating) {
+    public void setRating(final Integer rating) {
         this.rating = rating;
     }
 

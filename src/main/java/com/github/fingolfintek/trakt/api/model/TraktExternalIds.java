@@ -2,9 +2,9 @@ package com.github.fingolfintek.trakt.api.model;
 
 public class TraktExternalIds extends TraktId {
     private String imdb;
-    private int tmdb;
-    private int tvdb;
-    private int tvrage;
+    private Integer tmdb;
+    private Integer tvdb;
+    private Integer tvrage;
 
     public String getImdb() {
         return imdb;
@@ -14,27 +14,27 @@ public class TraktExternalIds extends TraktId {
         this.imdb = imdb;
     }
 
-    public int getTmdb() {
+    public Integer getTmdb() {
         return tmdb;
     }
 
-    public void setTmdb(final int tmdb) {
+    public void setTmdb(final Integer tmdb) {
         this.tmdb = tmdb;
     }
 
-    public int getTvdb() {
+    public Integer getTvdb() {
         return tvdb;
     }
 
-    public void setTvdb(final int tvdb) {
+    public void setTvdb(final Integer tvdb) {
         this.tvdb = tvdb;
     }
 
-    public int getTvrage() {
+    public Integer getTvrage() {
         return tvrage;
     }
 
-    public void setTvrage(final int tvrage) {
+    public void setTvrage(final Integer tvrage) {
         this.tvrage = tvrage;
     }
 }

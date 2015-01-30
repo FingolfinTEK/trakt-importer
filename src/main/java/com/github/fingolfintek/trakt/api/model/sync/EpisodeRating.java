@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.fingolfintek.trakt.api.model.TraktEpisode;
 
 public class EpisodeRating extends TraktEpisode {
-    private int rating;
+    private Integer rating;
     private String ratedAt;
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(final int rating) {
+    public void setRating(final Integer rating) {
         this.rating = rating;
     }
 

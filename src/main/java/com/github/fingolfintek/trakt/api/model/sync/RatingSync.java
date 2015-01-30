@@ -2,11 +2,22 @@ package com.github.fingolfintek.trakt.api.model.sync;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RatingSync {
     
     private List<MovieRating> movies;
     private List<EpisodeRating> episodes;
     private List<ShowRating> shows;
+
+    public RatingSync() {
+    }
+
+    public RatingSync(List<MovieRating> movies, List<ShowRating> shows) {
+        this.movies = movies;
+        this.shows = shows;
+    }
 
     public List<MovieRating> getMovies() {
         return movies;

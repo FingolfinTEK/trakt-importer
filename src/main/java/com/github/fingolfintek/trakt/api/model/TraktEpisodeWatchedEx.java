@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TraktEpisodeWatchedEx extends TraktEpisodeEx {
     private String watchedAt;
-    private int plays ;
+    private Integer plays ;
 
     @JsonProperty("watched_at")
     public String getWatchedAt() {
@@ -15,11 +15,11 @@ public class TraktEpisodeWatchedEx extends TraktEpisodeEx {
         this.watchedAt = watchedAt;
     }
 
-    public int getPlays() {
+    public Integer getPlays() {
         return plays;
     }
 
-    public void setPlays(final int plays) {
+    public void setPlays(final Integer plays) {
         this.plays = plays;
     }
 }

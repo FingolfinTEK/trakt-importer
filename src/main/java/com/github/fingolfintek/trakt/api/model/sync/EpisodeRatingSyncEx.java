@@ -30,14 +30,14 @@ public class EpisodeRatingSyncEx {
     }
 
     public static class TraktSeasonEpisodesRating {
-        private int number;
+        private Integer number;
         private List<TraktEpisodeRatingEx> episodes;
     
-        public int getNumber() {
+        public Integer getNumber() {
             return number;
         }
     
-        public void setNumber(final int number) {
+        public void setNumber(final Integer number) {
             this.number = number;
         }
     
@@ -52,7 +52,7 @@ public class EpisodeRatingSyncEx {
 
     public static class TraktEpisodeRatingEx extends TraktEpisodeEx {
         private String ratedAt;
-        private int rating;
+        private Integer rating;
 
         @JsonProperty("rated_at")
         public String getRatedAt() {
@@ -63,11 +63,11 @@ public class EpisodeRatingSyncEx {
             this.ratedAt = ratedAt;
         }
 
-        public int getRating() {
+        public Integer getRating() {
             return rating;
         }
 
-        public void setRating(final int rating) {
+        public void setRating(final Integer rating) {
             this.rating = rating;
         }
     }

@@ -29,14 +29,14 @@ public class EpisodeWatchedSyncEx {
     }
 
     public static class TraktSeasonEpisodesWatched {
-        private int number;
+        private Integer number;
         private List<TraktEpisodeWatchedEx> episodes;
     
-        public int getNumber() {
+        public Integer getNumber() {
             return number;
         }
     
-        public void setNumber(final int number) {
+        public void setNumber(final Integer number) {
             this.number = number;
         }
     

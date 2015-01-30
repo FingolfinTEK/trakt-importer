@@ -29,40 +29,40 @@ public class SyncResponse {
     }
 
     public static class AddedItems {
-        private int movies;
-        private int shows;
-        private int seasons;
-        private int episodes;
+        private Integer movies;
+        private Integer shows;
+        private Integer seasons;
+        private Integer episodes;
 
-        public int getMovies() {
+        public Integer getMovies() {
             return movies;
         }
 
-        public void setMovies(final int movies) {
+        public void setMovies(final Integer movies) {
             this.movies = movies;
         }
 
-        public int getShows() {
+        public Integer getShows() {
             return shows;
         }
 
-        public void setShows(final int shows) {
+        public void setShows(final Integer shows) {
             this.shows = shows;
         }
 
-        public int getSeasons() {
+        public Integer getSeasons() {
             return seasons;
         }
 
-        public void setSeasons(final int seasons) {
+        public void setSeasons(final Integer seasons) {
             this.seasons = seasons;
         }
 
-        public int getEpisodes() {
+        public Integer getEpisodes() {
             return episodes;
         }
 
-        public void setEpisodes(final int episodes) {
+        public void setEpisodes(final Integer episodes) {
             this.episodes = episodes;
         }
     }

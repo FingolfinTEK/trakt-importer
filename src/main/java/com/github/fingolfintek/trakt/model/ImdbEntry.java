@@ -1,6 +1,7 @@
 package com.github.fingolfintek.trakt.model;
 
 import com.github.fingolfintek.trakt.api.model.TraktExternalIds;
+import com.github.fingolfintek.trakt.util.Pair;
 import com.googlecode.jcsv.annotations.MapToColumn;
 
 public class ImdbEntry {
@@ -29,7 +30,7 @@ public class ImdbEntry {
     private String directors;
     
     @MapToColumn(column = 8)
-    private String rating;
+    private Integer rating;
     
     @MapToColumn(column = 9)
     private String imdbRating;
@@ -116,11 +117,11 @@ public class ImdbEntry {
         this.directors = directors;
     }
 
-    public String getRating() {
+    public Integer getRating() {
         return rating;
     }
 
-    public void setRating(final String rating) {
+    public void setRating(final Integer rating) {
         this.rating = rating;
     }
 
@@ -180,13 +181,18 @@ public class ImdbEntry {
         this.url = url;
     }
     
+    public boolean isShow() {
+        return "TV Series".equals(titleType);
+    }
+
     public TraktExternalIds toIds() {
         final TraktExternalIds ids = new TraktExternalIds();
         ids.setImdb(id);
         return ids;
     }
     
-    public boolean isShow() {
-        return "TV Series".equals(titleType);
+    public Pair<TraktExternalIds, Integer> toIdsWithRating(){
+        return new Pair<>(toIds(), rating);
     }
+    
 }
