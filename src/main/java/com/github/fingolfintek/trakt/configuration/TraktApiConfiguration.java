@@ -30,11 +30,12 @@ public class TraktApiConfiguration {
     @Autowired
     private TraktBasicHeadersPopulator basicHeadersPopulator;
     
+    private LoginService loginService;
     private String token;
 
     @PreDestroy
     public void logout() throws GeneralSecurityException {
-        loginService().logout(properties.getUsername(), token);
+        loginService.logout(properties.getUsername(), token);
     }
 
     @Bean
@@ -51,7 +52,7 @@ public class TraktApiConfiguration {
 
     @Bean
     public LoginService loginService() throws GeneralSecurityException {
-        return restAdapter(basicHeadersPopulator).create(LoginService.class);
+        return loginService = restAdapter(basicHeadersPopulator).create(LoginService.class);
     }
 
     @Bean

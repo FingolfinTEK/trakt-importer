@@ -3,11 +3,14 @@ package com.github.fingolfintek.trakt.api.model.sync;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.fingolfintek.trakt.api.model.TraktEpisode;
 import com.github.fingolfintek.trakt.api.model.TraktMovie;
+import com.github.fingolfintek.trakt.api.model.TraktSeason;
 import com.github.fingolfintek.trakt.api.model.TraktShow;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SyncResponse {
     private NumberedItems added = new NumberedItems();
     private NumberedItems existing = new NumberedItems();
@@ -44,12 +47,13 @@ public class SyncResponse {
         combined.combineWith(other);
         return combined;
     }
-    
+
     private void combineWith(SyncResponse other) {
         added.combineWith(other.added);
         notFound.combineWith(other.notFound);
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class NumberedItems {
         private int movies;
         private int shows;
@@ -87,7 +91,7 @@ public class SyncResponse {
         public void setEpisodes(final int episodes) {
             this.episodes = episodes;
         }
-        
+
         public void combineWith(NumberedItems other) {
             movies += other.movies;
             shows += other.shows;
@@ -96,9 +100,11 @@ public class SyncResponse {
         }
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public static class NotFoundItems {
         private List<TraktMovie> movies = new ArrayList<>();
         private List<TraktShow> shows = new ArrayList<>();
+        private List<TraktSeason> seasons = new ArrayList<>();
         private List<TraktEpisode> episodes = new ArrayList<>();
 
         public List<TraktMovie> getMovies() {
@@ -117,6 +123,14 @@ public class SyncResponse {
             this.shows = shows;
         }
 
+        public List<TraktSeason> getSeasons() {
+            return seasons;
+        }
+
+        public void setSeasons(final List<TraktSeason> seasons) {
+            this.seasons = seasons;
+        }
+
         public List<TraktEpisode> getEpisodes() {
             return episodes;
         }
@@ -129,6 +143,7 @@ public class SyncResponse {
             movies.addAll(other.movies);
             shows.addAll(other.shows);
             episodes.addAll(other.episodes);
+            seasons.addAll(other.seasons);
         }
     }
 }
