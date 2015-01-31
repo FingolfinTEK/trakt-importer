@@ -1,6 +1,5 @@
 package com.github.fingolfintek.trakt.sync;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -13,26 +12,20 @@ import com.github.fingolfintek.trakt.api.model.sync.CollectionSync;
 import com.github.fingolfintek.trakt.api.model.sync.SyncResponse;
 import com.github.fingolfintek.trakt.model.ImdbEntry;
 import com.github.fingolfintek.trakt.parser.ImdbParser;
-import org.springframework.core.io.Resource;
 
 import static java.util.stream.Collectors.toList;
 
-public class ImdbWatchlistImporter implements ResourceImporter {
-
-    public static final Predicate<ImdbEntry> IS_SHOW = ImdbEntry::isShow;
-    private final SyncService syncService;
-    private final ImdbParser parser;
+public class ImdbWatchlistImporter extends BaseImdbRatingsImporter {
 
     public ImdbWatchlistImporter(final SyncService syncService, final ImdbParser parser) {
-        this.syncService = syncService;
-        this.parser = parser;
+        super(syncService, parser);
     }
 
     @Override
-    public SyncResponse importFrom(final Resource resource) throws IOException {
-        List<ImdbEntry> entries = parser.parse(resource);
+    protected SyncResponse importFrom(final List<ImdbEntry> entries) {
         List<TraktMovie> movies = filterAndMap(entries, IS_SHOW.negate(), TraktMovie::new);
         List<TraktShow> shows = filterAndMap(entries, IS_SHOW, TraktShow::new);
+        logger.info("Importing {} movies and {} series into watchlist", movies.size(), shows.size());
         return syncService.syncWatchlist(new CollectionSync(movies, shows));
     }
 

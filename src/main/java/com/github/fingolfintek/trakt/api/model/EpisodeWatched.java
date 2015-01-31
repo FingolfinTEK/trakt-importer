@@ -2,7 +2,7 @@ package com.github.fingolfintek.trakt.api.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class TraktEpisodeWatched extends TraktEpisode {
+public class EpisodeWatched extends TraktEpisode {
     @JsonProperty("watched_at")
     private String watchedAt;
 

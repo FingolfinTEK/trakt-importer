@@ -8,6 +8,7 @@ import java.security.GeneralSecurityException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
+import java.util.concurrent.TimeUnit;
 
 import com.squareup.okhttp.OkHttpClient;
 import retrofit.client.OkClient;
@@ -15,7 +16,14 @@ import retrofit.client.OkClient;
 public class TrustySslUtil {
 
     public static OkClient trustyClient() throws GeneralSecurityException {
+        return trustyClient(180);
+    }
+
+    public static OkClient trustyClient(final long timeoutInSeconds) throws NoSuchAlgorithmException, KeyManagementException {
         final OkHttpClient client = new OkHttpClient();
+        client.setConnectTimeout(timeoutInSeconds, TimeUnit.SECONDS);
+        client.setReadTimeout(timeoutInSeconds, TimeUnit.SECONDS);
+        client.setWriteTimeout(timeoutInSeconds, TimeUnit.SECONDS);
         client.setSslSocketFactory(createTrustySslSocketFactory());
         client.setHostnameVerifier((s, sslSession) -> true);
         return new OkClient(client);

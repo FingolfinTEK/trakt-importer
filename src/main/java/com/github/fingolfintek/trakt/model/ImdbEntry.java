@@ -30,7 +30,7 @@ public class ImdbEntry {
     private String directors;
     
     @MapToColumn(column = 8)
-    private Integer rating;
+    private String rating;
     
     @MapToColumn(column = 9)
     private String imdbRating;
@@ -117,11 +117,11 @@ public class ImdbEntry {
         this.directors = directors;
     }
 
-    public Integer getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(final Integer rating) {
+    public void setRating(final String rating) {
         this.rating = rating;
     }
 
@@ -192,7 +192,7 @@ public class ImdbEntry {
     }
     
     public Pair<TraktExternalIds, Integer> toIdsWithRating(){
-        return new Pair<>(toIds(), rating);
+        return new Pair<>(toIds(), Integer.parseInt(rating));
     }
     
 }

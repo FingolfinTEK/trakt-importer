@@ -1,8 +1,9 @@
-package com.github.fingolfintek.trakt.api.model;
+package com.github.fingolfintek.trakt.api.model.sync;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.github.fingolfintek.trakt.api.model.TraktMovie;
 
-public class TraktMovieWatched {
+public class MovieWatched extends TraktMovie {
     @JsonProperty("watched_at")
     private String watchedAt;
 
