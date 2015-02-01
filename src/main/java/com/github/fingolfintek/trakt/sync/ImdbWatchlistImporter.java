@@ -23,19 +23,21 @@ public class ImdbWatchlistImporter extends BaseImdbRatingsImporter<TraktExternal
         return new WatchlistImportOperation().importFrom(entries);
     }
 
+    private BiFunction<List<TraktMovie>, List<TraktShow>, SyncResult> watchlistSyncer() {
+        return (m, s) -> syncService.syncWatchlist(new CollectionSync(m, s));
+    }
+
     private class WatchlistImportOperation extends ImportOperation<TraktExternalIds, TraktMovie, TraktShow> {
 
         public WatchlistImportOperation() {
             super(TraktMovie::new, TraktShow::new, ImdbWatchlistImporter.this::toIds, watchlistSyncer());
         }
 
-    }
+        @Override
+        protected String getDescription() {
+            return "watchlist";
+        }
 
-    private BiFunction<List<TraktMovie>, List<TraktShow>, SyncResult> watchlistSyncer() {
-        return (m, s) -> {
-            logger.info("Importing {} movies and {} series into watchlist", m.size(), s.size());
-            return syncService.syncWatchlist(new CollectionSync(m, s));
-        };
     }
 
 }

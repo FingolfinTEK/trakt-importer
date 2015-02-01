@@ -52,7 +52,7 @@ public abstract class BaseImdbRatingsImporter<I> implements ResourceImporter {
         return ids;
     }
 
-    public class ImportOperation<E, M, S> {
+    public abstract class ImportOperation<E, M, S> {
         private final Function<E, M> movieMapper;
         private final Function<E, S> showMapper;
         private final Function<ImdbEntry, E> intermediateMapper;
@@ -69,7 +69,7 @@ public abstract class BaseImdbRatingsImporter<I> implements ResourceImporter {
         protected SyncResult importFrom(final List<ImdbEntry> entries) {
             List<M> movies = filterAndMap(entries, IS_SHOW.negate(), movieMapper);
             List<S> shows = filterAndMap(entries, IS_SHOW, showMapper);
-            logger.info("Importing {} movie and {} series ratings", movies.size(), shows.size());
+            logger.info("Importing {} {} movie and {} series", getDescription(), movies.size(), shows.size());
             return importFunction.apply(movies, shows);
         }
 
@@ -80,6 +80,8 @@ public abstract class BaseImdbRatingsImporter<I> implements ResourceImporter {
         protected <R> Function<ImdbEntry, R> entryMapper(final Function<E, R> mapper) {
             return new FunctionBasedEntryMapper<>(intermediateMapper, mapper)::map;
         }
+
+        protected abstract String getDescription();
 
     }
 }
