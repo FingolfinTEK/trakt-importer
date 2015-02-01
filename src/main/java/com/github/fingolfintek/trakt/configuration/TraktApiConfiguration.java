@@ -29,7 +29,7 @@ public class TraktApiConfiguration {
 
     @Autowired
     private TraktBasicHeadersPopulator basicHeadersPopulator;
-    
+
     private LoginService loginService;
     private String token;
 

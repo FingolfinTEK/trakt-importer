@@ -23,7 +23,7 @@ public class ImdbCsvParser implements ImdbParser {
         this.readerFactory = readerFactory;
     }
 
-    @Override 
+    @Override
     public List<ImdbEntry> parse(final Resource resource) throws IOException {
         logger.info("Parsing IMDB file {}", resource.getFile());
         return readerFactory.createReader(ImdbEntry.class, resource, IMDB_STRATEGY).readAll();

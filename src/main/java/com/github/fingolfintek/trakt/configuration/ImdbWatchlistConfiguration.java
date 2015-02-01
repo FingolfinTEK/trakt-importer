@@ -21,7 +21,7 @@ public class ImdbWatchlistConfiguration {
 
     @Autowired
     private ImdbParser parser;
-    
+
     @Autowired
     private SyncService syncService;
 
@@ -29,7 +29,7 @@ public class ImdbWatchlistConfiguration {
     public ImdbWatchlistImporter watchlistImporter() {
         return new ImdbWatchlistImporter(syncService, parser);
     }
-    
+
     @Bean
     public CommandLineRunner watchlistImportRunner(ImdbProperties properties) {
         return (args) -> doImport(properties);

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TraktEpisodeWatchedEx extends TraktEpisodeEx {
     private String watchedAt;
-    private Integer plays ;
+    private Integer plays;
 
     @JsonProperty("watched_at")
     public String getWatchedAt() {

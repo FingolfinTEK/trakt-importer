@@ -12,7 +12,7 @@ public class CollectionSync {
     private List<TraktMovie> movies;
     private List<TraktShow> shows;
     private List<TraktEpisode> episodes;
-    
+
     public CollectionSync() {
     }
 
@@ -20,7 +20,7 @@ public class CollectionSync {
         this.movies = movies;
         this.shows = shows;
     }
-    
+
     public List<TraktMovie> getMovies() {
         return movies;
     }

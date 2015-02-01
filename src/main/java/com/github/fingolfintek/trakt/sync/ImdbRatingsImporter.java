@@ -13,7 +13,7 @@ import com.github.fingolfintek.trakt.util.Pair;
 
 import static java.lang.Integer.parseInt;
 
-public class ImdbRatingsImporter extends BaseImdbRatingsImporter<Pair> {
+public class ImdbRatingsImporter extends BaseImdbRatingsImporter {
 
     private final Function<ImdbEntry, Pair> toIdsWithRatings = (e) -> new Pair<>(toIds(e), parseInt(e.getRating()));
     private final RatingsImportOperation ratingsImportOperation = new RatingsImportOperation();

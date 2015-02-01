@@ -20,7 +20,7 @@ public class ImdbRatingsConfiguration {
 
     @Autowired
     private ImdbParser parser;
-    
+
     @Autowired
     private SyncService syncService;
 
@@ -28,7 +28,7 @@ public class ImdbRatingsConfiguration {
     public ImdbRatingsImporter ratingsImporter() {
         return new ImdbRatingsImporter(syncService, parser);
     }
-    
+
     @Bean
     public CommandLineRunner ratingsImportRunner(ImdbProperties properties) {
         return (args) -> doImport(properties);

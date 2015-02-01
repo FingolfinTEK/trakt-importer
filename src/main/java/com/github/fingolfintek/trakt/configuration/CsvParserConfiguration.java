@@ -9,6 +9,5 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnClass(CSVReader.class)
 @ComponentScan("com.github.fingolfintek.trakt.parser")
 public class CsvParserConfiguration {
-    
-    
+
 }

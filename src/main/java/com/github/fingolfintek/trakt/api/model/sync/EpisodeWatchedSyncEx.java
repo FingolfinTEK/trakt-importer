@@ -18,11 +18,11 @@ public class EpisodeWatchedSyncEx {
 
     public static class TraktShowSeasonsWatched extends TraktShow {
         private List<TraktSeasonEpisodesWatched> seasons;
-    
+
         public List<TraktSeasonEpisodesWatched> getSeasons() {
             return seasons;
         }
-    
+
         public void setSeasons(final List<TraktSeasonEpisodesWatched> seasons) {
             this.seasons = seasons;
         }
@@ -31,19 +31,19 @@ public class EpisodeWatchedSyncEx {
     public static class TraktSeasonEpisodesWatched {
         private Integer number;
         private List<TraktEpisodeWatchedEx> episodes;
-    
+
         public Integer getNumber() {
             return number;
         }
-    
+
         public void setNumber(final Integer number) {
             this.number = number;
         }
-    
+
         public List<TraktEpisodeWatchedEx> getEpisodes() {
             return episodes;
         }
-    
+
         public void setEpisodes(final List<TraktEpisodeWatchedEx> episodes) {
             this.episodes = episodes;
         }

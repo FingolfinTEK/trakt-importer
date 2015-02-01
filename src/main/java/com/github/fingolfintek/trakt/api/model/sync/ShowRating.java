@@ -6,17 +6,17 @@ import com.github.fingolfintek.trakt.api.model.TraktShow;
 import com.github.fingolfintek.trakt.util.Pair;
 
 public class ShowRating extends TraktShow {
-    
+
     private String ratedAt;
     private Integer rating;
-    
+
     public ShowRating() {
     }
 
-    public ShowRating(Pair<TraktExternalIds,Integer> idsWithRating) {
+    public ShowRating(Pair<TraktExternalIds, Integer> idsWithRating) {
         this(idsWithRating.getKey(), idsWithRating.getValue());
     }
-    
+
     public ShowRating(TraktExternalIds ids, Integer rating) {
         super(ids);
         this.rating = rating;

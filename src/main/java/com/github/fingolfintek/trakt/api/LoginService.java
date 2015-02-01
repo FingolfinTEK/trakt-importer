@@ -10,9 +10,7 @@ import retrofit.http.POST;
 
 public interface LoginService {
 
-    @POST("/auth/login") 
-    TraktUserToken login(@Body TraktLogin login);
+    @POST("/auth/login") TraktUserToken login(@Body TraktLogin login);
 
-    @DELETE("/auth/logout") 
-    TraktMessage logout(@Header("trakt-user-login") String username, @Header("trakt-user-token") String token);
+    @DELETE("/auth/logout") TraktMessage logout(@Header("trakt-user-login") String username, @Header("trakt-user-token") String token);
 }

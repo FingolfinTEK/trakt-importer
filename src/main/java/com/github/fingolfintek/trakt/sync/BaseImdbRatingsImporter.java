@@ -19,9 +19,9 @@ import org.springframework.core.io.Resource;
 
 import static java.util.stream.Collectors.toList;
 
-public abstract class BaseImdbRatingsImporter<I> implements ResourceImporter {
+public abstract class BaseImdbRatingsImporter implements ResourceImporter {
     protected static final Predicate<ImdbEntry> IS_SHOW = ImdbEntry::isShow;
-    private static final int PARTITION_SIZE = 100;
+    private static final int PARTITION_SIZE = 20;
 
     protected final Logger logger = LoggerFactory.getLogger(getClass());
     protected final SyncService syncService;
@@ -69,7 +69,7 @@ public abstract class BaseImdbRatingsImporter<I> implements ResourceImporter {
         protected SyncResult importFrom(final List<ImdbEntry> entries) {
             List<M> movies = filterAndMap(entries, IS_SHOW.negate(), movieMapper);
             List<S> shows = filterAndMap(entries, IS_SHOW, showMapper);
-            logger.info("Importing {} {} movie and {} series", getDescription(), movies.size(), shows.size());
+            logger.info("Importing {} for {} movies and {} series", getDescription(), movies.size(), shows.size());
             return importFunction.apply(movies, shows);
         }
 

@@ -6,9 +6,9 @@
         </encoder>
     </appender>
 
-    <logger level="INFO" name="com.github.fingolfintek"/>
+    <logger level="DEBUG" name="com.github.fingolfintek"/>
 
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>

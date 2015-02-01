@@ -7,7 +7,7 @@ import retrofit.RequestInterceptor;
 
 @Component
 public class TraktBasicHeadersPopulator implements RequestInterceptor {
-    
+
     private final String apiKey;
     private final Integer apiVersion;
 
@@ -21,7 +21,7 @@ public class TraktBasicHeadersPopulator implements RequestInterceptor {
         this.apiVersion = apiVersion;
     }
 
-    @Override 
+    @Override
     public void intercept(final RequestFacade request) {
         request.addHeader("Content-type", "application/json");
         request.addHeader("trakt-api-key", apiKey);

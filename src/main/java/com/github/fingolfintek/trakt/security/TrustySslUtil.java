@@ -16,7 +16,7 @@ import retrofit.client.OkClient;
 public class TrustySslUtil {
 
     public static OkClient trustyClient() throws GeneralSecurityException {
-        return trustyClient(180);
+        return trustyClient(360);
     }
 
     public static OkClient trustyClient(final long timeoutInSeconds) throws NoSuchAlgorithmException, KeyManagementException {

@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties("trakt")
 public class TraktProperties {
-    
+
     private String endpoint;
     private String apiKey;
     private String username;
@@ -51,7 +51,7 @@ public class TraktProperties {
     public void setApiVersion(final Integer apiVersion) {
         this.apiVersion = apiVersion;
     }
-    
+
     public TraktLogin toLogin() {
         return new TraktLogin(username, password);
     }

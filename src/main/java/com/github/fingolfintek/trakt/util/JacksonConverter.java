@@ -1,4 +1,3 @@
-
 package com.github.fingolfintek.trakt.util;
 
 import java.io.IOException;
@@ -12,11 +11,14 @@ import retrofit.converter.Converter;
 import retrofit.mime.TypedInput;
 import retrofit.mime.TypedOutput;
 
+import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
+
 public class JacksonConverter implements Converter {
     private final ObjectMapper objectMapper;
 
     public JacksonConverter(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
+        objectMapper.configure(FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
     @Override

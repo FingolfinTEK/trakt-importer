@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TraktId {
     private Integer trakt;
-    private String slug;          
+    private String slug;
 
     public Integer getTrakt() {
         return trakt;

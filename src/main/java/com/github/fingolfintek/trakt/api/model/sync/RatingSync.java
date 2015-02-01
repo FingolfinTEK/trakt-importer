@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RatingSync {
-    
+
     private List<MovieRating> movies;
     private List<EpisodeRating> episodes;
     private List<ShowRating> shows;

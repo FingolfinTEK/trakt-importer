@@ -9,7 +9,7 @@ public class HistorySync {
     private List<MovieWatched> movies;
     private List<ShowWatched> shows;
     private List<EpisodeWatched> episodes;
-    
+
     public HistorySync() {
     }
 
@@ -17,7 +17,7 @@ public class HistorySync {
         this.movies = movies;
         this.shows = shows;
     }
-    
+
     public List<MovieWatched> getMovies() {
         return movies;
     }

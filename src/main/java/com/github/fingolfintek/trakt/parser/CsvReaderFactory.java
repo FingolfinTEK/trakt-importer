@@ -14,17 +14,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CsvReaderFactory {
-    
+
     private final ValueProcessorProvider provider;
 
     public CsvReaderFactory() {
         this(new ValueProcessorProvider());
     }
-    
+
     public CsvReaderFactory(final ValueProcessorProvider provider) {
         this.provider = provider;
     }
-    
+
     public <T> CSVReader<T> createReader(Class<T> type, Resource resource) throws IOException {
         final CSVStrategy strategy = CSVStrategy.UK_DEFAULT;
         return createReader(type, resource, strategy);

@@ -12,7 +12,7 @@ import com.github.fingolfintek.trakt.api.model.sync.SyncResult;
 import com.github.fingolfintek.trakt.model.ImdbEntry;
 import com.github.fingolfintek.trakt.parser.ImdbParser;
 
-public class ImdbWatchlistImporter extends BaseImdbRatingsImporter<TraktExternalIds> {
+public class ImdbWatchlistImporter extends BaseImdbRatingsImporter {
 
     public ImdbWatchlistImporter(final SyncService syncService, final ImdbParser parser) {
         super(syncService, parser);

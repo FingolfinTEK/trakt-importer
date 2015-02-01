@@ -5,49 +5,49 @@ import com.googlecode.jcsv.annotations.MapToColumn;
 public class ImdbEntry {
     @MapToColumn(column = 0)
     private int position;
-    
+
     @MapToColumn(column = 1)
     private String id;
-    
+
     @MapToColumn(column = 2)
     private String created;
-    
+
     @MapToColumn(column = 3)
     private String modified;
-    
+
     @MapToColumn(column = 4)
     private String description;
-    
+
     @MapToColumn(column = 5)
     private String title;
-    
+
     @MapToColumn(column = 6)
     private String titleType;
-    
+
     @MapToColumn(column = 7)
     private String directors;
-    
+
     @MapToColumn(column = 8)
     private String rating;
-    
+
     @MapToColumn(column = 9)
     private String imdbRating;
-    
+
     @MapToColumn(column = 10)
     private String runtimeInMinutes;
-    
+
     @MapToColumn(column = 11)
     private String year;
-    
+
     @MapToColumn(column = 12)
     private String genres;
-    
+
     @MapToColumn(column = 13)
     private String numberOfVotes;
-    
+
     @MapToColumn(column = 14)
     private String releaseDate;
-    
+
     @MapToColumn(column = 15)
     private String url;
 
@@ -178,9 +178,9 @@ public class ImdbEntry {
     public void setUrl(final String url) {
         this.url = url;
     }
-    
+
     public boolean isShow() {
         return "TV Series".equals(titleType);
     }
-    
+
 }

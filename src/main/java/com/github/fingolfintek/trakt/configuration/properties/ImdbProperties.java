@@ -5,7 +5,7 @@ import org.springframework.core.io.Resource;
 
 @ConfigurationProperties("imdb")
 public class ImdbProperties {
-    
+
     private Resource watchlist;
     private Resource ratings;
 
