@@ -2,15 +2,15 @@ package com.github.fingolfintek.trakt.api.model.sync;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.fingolfintek.trakt.api.model.TraktExternalIds;
-import com.github.fingolfintek.trakt.api.model.TraktMovie;
+import com.github.fingolfintek.trakt.api.model.TraktShow;
 
-public class MovieWatched extends TraktMovie {
+public class ShowWatched extends TraktShow {
     private String watchedAt;
 
-    public MovieWatched() {
+    public ShowWatched() {
     }
 
-    public MovieWatched(TraktExternalIds ids) {
+    public ShowWatched(TraktExternalIds ids) {
         super(ids);
     }
 

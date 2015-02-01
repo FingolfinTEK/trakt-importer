@@ -1,35 +1,41 @@
 package com.github.fingolfintek.trakt.sync;
 
 import java.util.List;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.function.BiFunction;
 
 import com.github.fingolfintek.trakt.api.SyncService;
 import com.github.fingolfintek.trakt.api.model.TraktExternalIds;
 import com.github.fingolfintek.trakt.api.model.TraktMovie;
 import com.github.fingolfintek.trakt.api.model.TraktShow;
 import com.github.fingolfintek.trakt.api.model.sync.CollectionSync;
-import com.github.fingolfintek.trakt.api.model.sync.SyncResponse;
+import com.github.fingolfintek.trakt.api.model.sync.SyncResult;
 import com.github.fingolfintek.trakt.model.ImdbEntry;
 import com.github.fingolfintek.trakt.parser.ImdbParser;
 
-import static java.util.stream.Collectors.toList;
-
-public class ImdbWatchlistImporter extends BaseImdbRatingsImporter {
+public class ImdbWatchlistImporter extends BaseImdbRatingsImporter<TraktExternalIds> {
 
     public ImdbWatchlistImporter(final SyncService syncService, final ImdbParser parser) {
         super(syncService, parser);
     }
 
     @Override
-    protected SyncResponse importFrom(final List<ImdbEntry> entries) {
-        List<TraktMovie> movies = filterAndMap(entries, IS_SHOW.negate(), TraktMovie::new);
-        List<TraktShow> shows = filterAndMap(entries, IS_SHOW, TraktShow::new);
-        logger.info("Importing {} movies and {} series into watchlist", movies.size(), shows.size());
-        return syncService.syncWatchlist(new CollectionSync(movies, shows));
+    protected SyncResult importFrom(final List<ImdbEntry> entries) {
+        return new WatchlistImportOperation().importFrom(entries);
     }
 
-    private <R> List<R> filterAndMap(List<ImdbEntry> watchlist, Predicate<ImdbEntry> predicate, Function<TraktExternalIds, R> mapper) {
-        return watchlist.stream().filter(predicate).map(ImdbEntry::toIds).map(mapper).collect(toList());
+    private class WatchlistImportOperation extends ImportOperation<TraktExternalIds, TraktMovie, TraktShow> {
+
+        public WatchlistImportOperation() {
+            super(TraktMovie::new, TraktShow::new, ImdbWatchlistImporter.this::toIds, watchlistSyncer());
+        }
+
     }
+
+    private BiFunction<List<TraktMovie>, List<TraktShow>, SyncResult> watchlistSyncer() {
+        return (m, s) -> {
+            logger.info("Importing {} movies and {} series into watchlist", m.size(), s.size());
+            return syncService.syncWatchlist(new CollectionSync(m, s));
+        };
+    }
+
 }

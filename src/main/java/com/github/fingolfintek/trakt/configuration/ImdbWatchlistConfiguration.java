@@ -3,7 +3,7 @@ package com.github.fingolfintek.trakt.configuration;
 import java.io.IOException;
 
 import com.github.fingolfintek.trakt.api.SyncService;
-import com.github.fingolfintek.trakt.api.model.sync.SyncResponse;
+import com.github.fingolfintek.trakt.api.model.sync.SyncResult;
 import com.github.fingolfintek.trakt.configuration.properties.ImdbProperties;
 import com.github.fingolfintek.trakt.parser.ImdbParser;
 import com.github.fingolfintek.trakt.sync.ImdbWatchlistImporter;
@@ -35,7 +35,7 @@ public class ImdbWatchlistConfiguration {
         return (args) -> doImport(properties);
     }
 
-    private SyncResponse doImport(ImdbProperties properties) {
+    private SyncResult doImport(ImdbProperties properties) {
         try {
             return watchlistImporter().importFrom(properties.getWatchlist());
         } catch (IOException e) {

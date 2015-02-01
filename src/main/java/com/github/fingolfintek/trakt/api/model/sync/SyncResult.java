@@ -11,7 +11,7 @@ import com.github.fingolfintek.trakt.api.model.TraktSeason;
 import com.github.fingolfintek.trakt.api.model.TraktShow;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SyncResponse {
+public class SyncResult {
     private NumberedItems added = new NumberedItems();
     private NumberedItems existing = new NumberedItems();
     private NotFoundItems notFound = new NotFoundItems();
@@ -41,14 +41,14 @@ public class SyncResponse {
         this.notFound = notFound;
     }
 
-    public SyncResponse combinedWith(SyncResponse other) {
-        SyncResponse combined = new SyncResponse();
+    public SyncResult combinedWith(SyncResult other) {
+        SyncResult combined = new SyncResult();
         combined.combineWith(this);
         combined.combineWith(other);
         return combined;
     }
 
-    private void combineWith(SyncResponse other) {
+    private void combineWith(SyncResult other) {
         added.combineWith(other.added);
         notFound.combineWith(other.notFound);
     }

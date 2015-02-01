@@ -1,7 +1,5 @@
 package com.github.fingolfintek.trakt.model;
 
-import com.github.fingolfintek.trakt.api.model.TraktExternalIds;
-import com.github.fingolfintek.trakt.util.Pair;
 import com.googlecode.jcsv.annotations.MapToColumn;
 
 public class ImdbEntry {
@@ -183,16 +181,6 @@ public class ImdbEntry {
     
     public boolean isShow() {
         return "TV Series".equals(titleType);
-    }
-
-    public TraktExternalIds toIds() {
-        final TraktExternalIds ids = new TraktExternalIds();
-        ids.setImdb(id);
-        return ids;
-    }
-    
-    public Pair<TraktExternalIds, Integer> toIdsWithRating(){
-        return new Pair<>(toIds(), Integer.parseInt(rating));
     }
     
 }

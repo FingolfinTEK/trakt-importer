@@ -6,12 +6,12 @@ import retrofit.http.POST;
 
 public interface SyncService {
 
-    @POST("/sync/collection") SyncResponse syncCollection(@Body CollectionSync sync);
+    @POST("/sync/collection") SyncResult syncCollection(@Body CollectionSync sync);
 
-    @POST("/sync/history") SyncResponse syncHistory(@Body CollectionSync sync);
+    @POST("/sync/history") SyncResult syncHistory(@Body HistorySync sync);
 
-    @POST("/sync/ratings") SyncResponse syncRatings(@Body RatingSync sync);
+    @POST("/sync/ratings") SyncResult syncRatings(@Body RatingSync sync);
     
-    @POST("/sync/watchlist") SyncResponse syncWatchlist(@Body CollectionSync sync);
+    @POST("/sync/watchlist") SyncResult syncWatchlist(@Body CollectionSync sync);
 
 }

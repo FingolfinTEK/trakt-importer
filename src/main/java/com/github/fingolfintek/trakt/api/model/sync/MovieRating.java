@@ -6,14 +6,14 @@ import com.github.fingolfintek.trakt.api.model.TraktMovie;
 import com.github.fingolfintek.trakt.util.Pair;
 
 public class MovieRating extends TraktMovie {
-    
+
     private String ratedAt;
     private Integer rating;
 
     public MovieRating() {
     }
 
-    public MovieRating(Pair<TraktExternalIds,Integer> idsWithRating) {
+    public MovieRating(Pair<TraktExternalIds, Integer> idsWithRating) {
         this(idsWithRating.getKey(), idsWithRating.getValue());
     }
 

@@ -5,10 +5,10 @@
             <pattern>%msg %n</pattern>
         </encoder>
     </appender>
-    
-    <logger name="com.fingolfintek" />
+
+    <logger level="INFO" name="com.github.fingolfintek"/>
 
     <root level="INFO">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
