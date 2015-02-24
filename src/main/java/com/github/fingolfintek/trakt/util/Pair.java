@@ -75,7 +75,6 @@ public class Pair<K, V> implements Serializable {
     /**
      * <p>Test this <code>Pair</code> for equality with another
      * <code>Object</code>.</p>
-     * <p/>
      * <p>If the <code>Object</code> to be tested is not a
      * <code>Pair</code> or is <code>null</code>, then this method
      * returns <code>false</code>.</p>
