@@ -46,7 +46,6 @@ public class Pair<K, V> implements Serializable {
     /**
      * <p><code>String</code> representation of this
      * <code>Pair</code>.</p>
-     * <p/>
      * <p>The default name/value delimiter '=' is always used.</p>
      *
      * @return <code>String</code> representation of this <code>Pair</code>
@@ -58,7 +57,6 @@ public class Pair<K, V> implements Serializable {
 
     /**
      * <p>Generate a hash code for this <code>Pair</code>.</p>
-     * <p/>
      * <p>The hash code is calculated using both the name and
      * the value of the <code>Pair</code>.</p>
      *
@@ -81,7 +79,6 @@ public class Pair<K, V> implements Serializable {
      * <p>If the <code>Object</code> to be tested is not a
      * <code>Pair</code> or is <code>null</code>, then this method
      * returns <code>false</code>.</p>
-     * <p/>
      * <p>Two <code>Pair</code>s are considered equal if and only if
      * both the names and values are equal.</p>
      *
